@@ -2,9 +2,9 @@
 title: "Luca Schettino"
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
-  image: img/profile.png
-  image-width: 15em
-  image-shape: round # rectangle  round  rounded
+  image: salis.PNG
+  image-width: 20em
+  image-shape: rectangle # rectangle  round  rounded
   
   links:
     - icon: linkedin
@@ -18,7 +18,7 @@ about:
       href: https://github.com
     - icon: file-earmark-pdf
       text: Resumé
-      href: https://GITHUB_USERNAME.github.io/resume-example.pdf
+      href: resume.pdf
     - icon: mailbox
       text: Email
       href: mailto:YOUR_EMAIL@geneseo.edu
@@ -26,16 +26,16 @@ about:
 ---
 
 
-Finley Malloc majors in Data Analytics at SUNY Geneseo. When not working on data analytics, Finley enjoys spending time unicycling and playing with her pet iguana.
+Luca Schettino majors in Finance at SUNY Geneseo. When not working on data analytics, Luca enjoys spending time with friends and playing lacrosse.
 
 ## Education
 
 State University of New York at Geneseo | Geneseo, NY <br>
-B.S. in Data Analytics | Aug 2022 - May 2026 <br>
-Minor in Business Administration 
+B.S. in Finance | Aug 2022 - May 2026 <br>
+ 
 
 ## Experience
 
-Starbucks Analytics | Data Analyst Intern | May 2024 - Aug 2024
+Stifel Emerging Leaders Seminar | Sales Associate; Rothmans Clothing
 
 
