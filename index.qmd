@@ -15,7 +15,7 @@ about:
       href: https://www.instagram.com/luca_schettino_/
     - icon: github
       text: GitHub
-      href: https://github.com
+      href: https://github.com/Luca-Schettino
     - icon: file-earmark-pdf
       text: Resumé
       href: resume.pdf
