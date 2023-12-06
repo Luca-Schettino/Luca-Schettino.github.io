@@ -9,7 +9,7 @@ about:
   links:
     - icon: linkedin
       text: LinkedIn
-      href: www.linkedin.com/in/luca-schettino-289b0929b
+      href: https://www.linkedin.com/in/luca-schettino-289b0929b/
     - icon: instagram
       text: Instagram
       href: https://instagram.com
