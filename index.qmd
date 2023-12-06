@@ -10,9 +10,6 @@ about:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/luca-schettino-289b0929b/
-    - icon: instagram
-      text: Instagram
-      href: https://www.instagram.com/luca_schettino_/
     - icon: github
       text: GitHub
       href: https://github.com/Luca-Schettino
