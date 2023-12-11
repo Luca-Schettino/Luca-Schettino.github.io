@@ -15,9 +15,31 @@ toc: true
 ![](res.jpg)
 # Question 1
 
+```{r}
+library(tidyverse)
+library(skimr)
+```
+
+```{r}
+restaurant <- read.csv('https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv')
+```
+
+
 The following list is the 10 most common cuisines that have the highest proportion of Grade A.
 
 ```{r}
+q2e <- restaurant %>% 
+  group_by(CUISINE.DESCRIPTION) %>% 
+  mutate(n = n()) %>% 
+  ungroup() %>% 
+  filter(dense_rank(-n) <= 10) %>% 
+  group_by(CUISINE.DESCRIPTION, GRADE) %>% 
+  count() %>% 
+  group_by(CUISINE.DESCRIPTION) %>% 
+  mutate(prop_A = n / sum(n)) %>% 
+  filter(GRADE == 'A') %>% 
+  arrange(-prop_A)
 
+q2e
 ```
 

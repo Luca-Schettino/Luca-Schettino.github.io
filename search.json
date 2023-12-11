@@ -144,6 +144,6 @@
     "href": "posts/starwars/restaurant.html",
     "title": "Restaurant Inspection",
     "section": "",
-    "text": "# Question 1\nThe following list is the 10 most common cuisines that have the highest proportion of Grade A."
+    "text": "# Question 1\n\nlibrary(tidyverse)\nlibrary(skimr)\n\n\nrestaurant &lt;- read.csv('https://bcdanl.github.io/data/DOHMH_NYC_Restaurant_Inspection.csv')\n\nThe following list is the 10 most common cuisines that have the highest proportion of Grade A.\n\nq2e &lt;- restaurant %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(n = n()) %&gt;% \n  ungroup() %&gt;% \n  filter(dense_rank(-n) &lt;= 10) %&gt;% \n  group_by(CUISINE.DESCRIPTION, GRADE) %&gt;% \n  count() %&gt;% \n  group_by(CUISINE.DESCRIPTION) %&gt;% \n  mutate(prop_A = n / sum(n)) %&gt;% \n  filter(GRADE == 'A') %&gt;% \n  arrange(-prop_A)\n\nq2e\n\n# A tibble: 10 × 4\n# Groups:   CUISINE.DESCRIPTION [10]\n   CUISINE.DESCRIPTION      GRADE     n prop_A\n   &lt;chr&gt;                    &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;\n 1 Donuts                   A       499  0.988\n 2 Coffee/Tea               A      1356  0.959\n 3 American                 A      3505  0.953\n 4 Italian                  A       653  0.948\n 5 Pizza                    A       961  0.915\n 6 Bakery Products/Desserts A       560  0.911\n 7 Japanese                 A       529  0.906\n 8 Mexican                  A       515  0.885\n 9 Chinese                  A      1205  0.878\n10 Latin American           A       464  0.853"
   }
 ]
