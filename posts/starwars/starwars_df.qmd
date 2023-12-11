@@ -1,9 +1,9 @@
 ---
-title: "Starwars"
-author: "Your Name"
-date: "2023-10-30"
-categories: [starwars, code, analysis]
-image: "image.png"
+title: "Restaurant Inspection"
+author: "Luca Schettino"
+date: "2023-12-11"
+categories: [data analysis]
+image: "download-1.jpg"
 
 execute: 
   warning: false
@@ -11,88 +11,13 @@ execute:
   
 toc: true
 ---
-```{r}
-#| include: false
 
-library(knitr)
-library(rmarkdown)
-library(tidyverse)
-library(skimr)
-library(ggthemes)
-library(hrbrthemes)
+![](res.jpg)
+# Question 1
 
-theme_set(theme_ipsum()+
-          theme(strip.background =element_rect(fill="lightgray"),
-                axis.title.x  = element_text(angle = 0,
-                                            size = rel(1.5),
-                                            margin = margin(10,0,0,0)),
-                axis.title.y  = element_text(angle = 0,
-                                            size = rel(1.5),
-                                            margin = margin(0,10,0,0))
-                )
-          )
-```
-
-Let's analyze the `starwars` data:
+The following list is the 10 most common cuisines that have the highest proportion of Grade A.
 
 ```{r}
-starwars <- read_csv("https://bcdanl.github.io/data/starwars.csv")
-```
-
-
-```{r}
-#| results: asis
-rmarkdown::paged_table(starwars) 
-```
-
-
-
-## Variable Description for `starwars` data.frame
-
-The following describes the variables in the `starwars` data.frame.
-
-
-- `films`
-List of films the character appeared in
-
-- `name`
-Name of the character
-
-- `species`
-Name of species
-
-- `height`
-Height (cm)
-
-- `mass`
-Weight (kg)
-
-- `hair_color`, `skin_color`, `eye_color`
-Hair, skin, and eye colors
-
-- `birth_year`
-Year born (BBY = Before Battle of Yavin)
-
-- `sex`
-The biological sex of the character, namely male, female, hermaphroditic, or none (as in the case for Droids).
-
-- `gender`
-The gender role or gender identity of the character as determined by their personality or the way they were programmed (as in the case for Droids).
-
-- `homeworld`
-Name of homeworld
-
-
-## Human vs. Droid
-
-```{r}
-ggplot(data = 
-         starwars %>% 
-         filter(species %in% c("Human", "Droid"))) +
-  geom_boxplot(aes(x = species, y = mass, 
-                   fill = species),
-               show.legend = FALSE)
 
 ```
-
 
