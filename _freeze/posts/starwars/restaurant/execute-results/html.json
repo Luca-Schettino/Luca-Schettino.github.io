@@ -1,0 +1,14 @@
+{
+  "hash": "bd9ffaefba1929862e912553edb5d81c",
+  "result": {
+    "markdown": "---\ntitle: \"Restaurant Inspection\"\nauthor: \"Luca Schettino\"\ndate: \"2023-12-11\"\ncategories: [data analysis]\nimage: \"download-1.jpg\"\n\nexecute: \n  warning: false\n  message: false\n  \ntoc: true\n---\n\n\n![](res.jpg)\n# Question 1\n\nThe following list is the 10 most common cuisines that have the highest proportion of Grade A.\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

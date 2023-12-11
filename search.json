@@ -137,6 +137,13 @@
     "href": "posts/Spotify/Spotify.html",
     "title": "Spotify All",
     "section": "",
-    "text": "Question 1\nThe following histogram shows the relationship between position and the ten most popular artists."
+    "text": "Question 1\nThe following histogram shows the relationship between position and the ten most popular artists.\n\nspotify_all &lt;- read.csv('https://bcdanl.github.io/data/spotify_all.csv')\n\n\nlibrary(tidyverse)\nlibrary(skimr)\n\n\nQ1c &lt;- spotify_all %&gt;% \n  group_by(artist_name) %&gt;% \n  mutate(n_popular_artist = n()) %&gt;% \n  ungroup() %&gt;% \n  mutate( artist_ranking = dense_rank( desc(n_popular_artist) ) ) %&gt;% \n  filter( artist_ranking &lt;= 10) \n  \n# histogram\nggplot(Q1c) +\n  geom_histogram(aes(x = pos), binwidth = 1) + \n  facet_grid(fct_reorder(artist_name, artist_ranking) ~ .  , switch = \"y\") +\n  theme(strip.text.y.left = element_text(angle = 0))\n\n\n\n\nAll are skewed right. Users tend to locate these popular artists’ songs early in their playlist."
+  },
+  {
+    "objectID": "posts/starwars/restaurant.html",
+    "href": "posts/starwars/restaurant.html",
+    "title": "Restaurant Inspection",
+    "section": "",
+    "text": "# Question 1\nThe following list is the 10 most common cuisines that have the highest proportion of Grade A."
   }
 ]

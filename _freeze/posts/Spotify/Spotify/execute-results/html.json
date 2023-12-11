@@ -1,0 +1,16 @@
+{
+  "hash": "226f9dbb3239fbb09c665f9a8fcb781a",
+  "result": {
+    "markdown": "---\ntitle: \"Spotify All\"\nauthor: \"Luca Schettino\"\ndate: \"2023-12-11\"\ncategories: [data analysis]\nimage: \"spotify.png\"\n\nexecute: \n  warning: false\n  message: false\n  \ntoc: true\n---\n\n\n![](spot.png)\n\n# Question 1\n\nThe following histogram shows the relationship between position and the ten most popular artists.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nspotify_all <- read.csv('https://bcdanl.github.io/data/spotify_all.csv')\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(skimr)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nQ1c <- spotify_all %>% \n  group_by(artist_name) %>% \n  mutate(n_popular_artist = n()) %>% \n  ungroup() %>% \n  mutate( artist_ranking = dense_rank( desc(n_popular_artist) ) ) %>% \n  filter( artist_ranking <= 10) \n  \n# histogram\nggplot(Q1c) +\n  geom_histogram(aes(x = pos), binwidth = 1) + \n  facet_grid(fct_reorder(artist_name, artist_ranking) ~ .  , switch = \"y\") +\n  theme(strip.text.y.left = element_text(angle = 0))\n```\n\n::: {.cell-output-display}\n![](Spotify_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\nAll are skewed right. Users tend to locate these popular artists’ songs early in their playlist.",
+    "supporting": [
+      "Spotify_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

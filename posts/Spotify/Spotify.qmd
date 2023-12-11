@@ -18,3 +18,28 @@ toc: true
 
 The following histogram shows the relationship between position and the ten most popular artists.
 
+```{r}
+spotify_all <- read.csv('https://bcdanl.github.io/data/spotify_all.csv')
+```
+
+```{r}
+library(tidyverse)
+library(skimr)
+```
+
+```{r}
+Q1c <- spotify_all %>% 
+  group_by(artist_name) %>% 
+  mutate(n_popular_artist = n()) %>% 
+  ungroup() %>% 
+  mutate( artist_ranking = dense_rank( desc(n_popular_artist) ) ) %>% 
+  filter( artist_ranking <= 10) 
+  
+# histogram
+ggplot(Q1c) +
+  geom_histogram(aes(x = pos), binwidth = 1) + 
+  facet_grid(fct_reorder(artist_name, artist_ranking) ~ .  , switch = "y") +
+  theme(strip.text.y.left = element_text(angle = 0))
+```
+
+All are skewed right. Users tend to locate these popular artists’ songs early in their playlist.
