@@ -1,0 +1,12 @@
+---
+title: "Welcome To My Blog"
+author: "Luca Schettino"
+date: "2023-12-11"
+categories: [news]
+---
+![](download.jpg)
+
+Welcome to my website! I am currently a Sophomore at SUNY Geneseo. I am majoring in Finance and I am a part of the varsity lacrosse team. I currently live in Westchester, NY. In my free time I enjoy listening to music, hanging out with friends and playing lacrosse. I hope you enjoy my website!
+
+
+

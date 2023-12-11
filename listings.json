@@ -2,8 +2,8 @@
   {
     "listing": "/blog-listing.html",
     "items": [
-      "/posts/starwars/starwars_df.html",
-      "/posts/welcome/index.html"
+      "/posts/welcome/welcome.html",
+      "/posts/starwars/starwars_df.html"
     ]
   }
 ]
