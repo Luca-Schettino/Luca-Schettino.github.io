@@ -174,6 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
   </ul>
 </nav>
     </div>
@@ -212,6 +213,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>All are skewed right. Users tend to locate these popular artists’ songs early in their playlist.</p>
+</section>
+<section id="question-2" class="level1">
+<h1>Question 2</h1>
+<p>The following list are the 10 most popular songs and the artist sang the songs name.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Q1a <span class="ot">&lt;-</span> spotify_all <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(artist_name, track_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>n) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>Q1a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        artist_name                          track_name   n
+1             Drake                           One Dance 143
+2    Kendrick Lamar                             HUMBLE. 142
+3  The Chainsmokers                              Closer 129
+4              DRAM         Broccoli (feat. Lil Yachty) 127
+5       Post Malone                     Congratulations 119
+6             Migos Bad and Boujee (feat. Lil Uzi Vert) 117
+7              KYLE             iSpy (feat. Lil Yachty) 115
+8      Lil Uzi Vert                       XO TOUR Llif3 113
+9             Aminé                            Caroline 107
+10           Khalid                            Location 102</code></pre>
+</div>
+</div>
 
 
 </section>

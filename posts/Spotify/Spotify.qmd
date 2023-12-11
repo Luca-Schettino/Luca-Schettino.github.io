@@ -43,3 +43,17 @@ ggplot(Q1c) +
 ```
 
 All are skewed right. Users tend to locate these popular artists’ songs early in their playlist.
+
+# Question 2
+
+The following list are the 10 most popular songs and the artist sang the songs name.
+
+```{r}
+Q1a <- spotify_all %>% 
+  count(artist_name, track_name) %>% 
+  arrange(-n) %>% 
+  head(10)
+
+Q1a
+```
+
