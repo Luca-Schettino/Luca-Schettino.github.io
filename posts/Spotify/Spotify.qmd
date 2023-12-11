@@ -1,0 +1,20 @@
+---
+title: "Spotify All"
+author: "Luca Schettino"
+date: "2023-12-11"
+categories: [data analysis]
+image: "spotify.png"
+
+execute: 
+  warning: false
+  message: false
+  
+toc: true
+---
+
+![](spot.png)
+
+# Question 1
+
+The following histogram shows the relationship between position and the ten most popular artists.
+

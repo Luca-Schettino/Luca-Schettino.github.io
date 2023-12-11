@@ -102,7 +102,7 @@
     "href": "blog-listing.html",
     "title": "Starwars",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nDec 11, 2023\n\n\nLuca Schettino\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\n\nDec 11, 2023\n\n\nLuca Schettino\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nDec 11, 2023\n\n\nLuca Schettino\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nSpotify All\n\n\n\n\n\n\n\n\n\nDec 11, 2023\n\n\nLuca Schettino\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nRestaurant Inspection\n\n\n\n\n\n\n\n\n\nDec 11, 2023\n\n\nLuca Schettino\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "project.html",
@@ -131,5 +131,12 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "Welcome to my website! I am currently a Sophomore at SUNY Geneseo. I am majoring in Finance and I am a part of the varsity lacrosse team. I currently live in Westchester, NY. In my free time I enjoy listening to music, hanging out with friends and playing lacrosse. I hope you enjoy my website!"
+  },
+  {
+    "objectID": "posts/Spotify/Spotify.html",
+    "href": "posts/Spotify/Spotify.html",
+    "title": "Spotify All",
+    "section": "",
+    "text": "Question 1\nThe following histogram shows the relationship between position and the ten most popular artists."
   }
 ]

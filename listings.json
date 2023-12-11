@@ -3,6 +3,7 @@
     "listing": "/blog-listing.html",
     "items": [
       "/posts/welcome/welcome.html",
+      "/posts/Spotify/Spotify.html",
       "/posts/starwars/starwars_df.html"
     ]
   }
