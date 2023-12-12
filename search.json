@@ -215,5 +215,103 @@
     "title": "NFL in 2022",
     "section": "Q2g",
     "text": "Q2g\n\nSummarize the resulting data.frame in Q2d, with the following four variables:\n\nposteam: String abbreviation for the team with possession.\npasser: Name of the player who passed a ball to a receiver by initially taking a three-step drop, and backpedaling into the pocket to make a pass. (Mostly, they are quarterbacks.)\nmean_epa: Mean value of epa in 2022 for each passer\nn_pass: Number of observations for each passer\n\nThen find the top 10 NFL passers in 2022 in terms of the mean value of epa, conditioning that n_pass must be greater than or equal to the third quantile level of n_pass.\n\n\nsummary_data &lt;- NFL2022_stuffs_EPA %&gt;%\n  group_by(posteam, passer) %&gt;%\n  summarise(\n    mean_epa = mean(epa, na.rm = TRUE),\n    n_pass = n()\n  )\n\nquantile_threshold_passer &lt;- quantile(summary_data$n_pass, 0.75)\nfiltered_summary_data &lt;- summary_data %&gt;%\n  filter(n_pass &gt;= quantile_threshold_passer)\n\ntop_10_passers &lt;- filtered_summary_data %&gt;%\n  arrange(desc(mean_epa)) %&gt;% \n  head(n=10)\n  \ntop_10_passers\n\n# A tibble: 10 × 4\n# Groups:   posteam [10]\n   posteam passer       mean_epa n_pass\n   &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;  &lt;int&gt;\n 1 KC      P.Mahomes      0.286     880\n 2 MIA     T.Tagovailoa   0.234     453\n 3 SF      J.Garoppolo    0.200     348\n 4 BUF     J.Allen        0.172     785\n 5 DET     J.Goff         0.171     661\n 6 CIN     J.Burrow       0.153     854\n 7 DAL     D.Prescott     0.147     529\n 8 PHI     J.Hurts        0.138     672\n 9 JAX     T.Lawrence     0.128     764\n10 CLE     J.Brissett     0.0912    445"
+  },
+  {
+    "objectID": "NBA project/NBASalaries.html",
+    "href": "NBA project/NBASalaries.html",
+    "title": "DANL Project",
+    "section": "",
+    "text": "About this project 👏 Welcome to our project, where we dive into the dynamic world of professional basketball through the lens of salaries and performance statistics. We will analyize a dataset with NBA player Salaries and statistics from the 2022-2023 NBA season.\n\nlibrary(tidyverse)\nlibrary(skimr)"
+  },
+  {
+    "objectID": "NBA project/NBASalaries.html#summary-statistics",
+    "href": "NBA project/NBASalaries.html#summary-statistics",
+    "title": "DANL Project",
+    "section": "2.1 Summary Statistics",
+    "text": "2.1 Summary Statistics\n\n\n\n  \n\n\n\nskim(mpg) %&gt;% \n  select(-n_missing)\n\n\nData summary\n\n\nName\nmpg\n\n\nNumber of rows\n234\n\n\nNumber of columns\n11\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n6\n\n\nnumeric\n5\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\nskim_variable\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\nmanufacturer\n1\n4\n10\n0\n15\n0\n\n\nmodel\n1\n2\n22\n0\n38\n0\n\n\ntrans\n1\n8\n10\n0\n10\n0\n\n\ndrv\n1\n1\n1\n0\n3\n0\n\n\nfl\n1\n1\n1\n0\n5\n0\n\n\nclass\n1\n3\n10\n0\n7\n0\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\ndispl\n1\n3.47\n1.29\n1.6\n2.4\n3.3\n4.6\n7\n▇▆▆▃▁\n\n\nyear\n1\n2003.50\n4.51\n1999.0\n1999.0\n2003.5\n2008.0\n2008\n▇▁▁▁▇\n\n\ncyl\n1\n5.89\n1.61\n4.0\n4.0\n6.0\n8.0\n8\n▇▁▇▁▇\n\n\ncty\n1\n16.86\n4.26\n9.0\n14.0\n17.0\n19.0\n35\n▆▇▃▁▁\n\n\nhwy\n1\n23.44\n5.95\n12.0\n18.0\n24.0\n27.0\n44\n▅▅▇▁▁"
+  },
+  {
+    "objectID": "NBA project/NBASalaries.html#mpg-and-a-type-of-cars",
+    "href": "NBA project/NBASalaries.html#mpg-and-a-type-of-cars",
+    "title": "DANL Project",
+    "section": "2.2 MPG and a Type of Cars",
+    "text": "2.2 MPG and a Type of Cars\nThe following boxplot shows how the distribution of highway MPG (hwy) varies by a type of cars (class) 🚙 🚚 🚐.\n\nggplot(data = mpg) +\n  geom_boxplot(aes(x = class, y = hwy, fill = class),\n               show.legend = F) +\n  labs(x = \"Class\", y = \"Highway\\nMPG\")"
+  },
+  {
+    "objectID": "NBA project/project.html",
+    "href": "NBA project/project.html",
+    "title": "DANL Project",
+    "section": "",
+    "text": "About this project 👏\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "NBA project/project.html#summary-statistics",
+    "href": "NBA project/project.html#summary-statistics",
+    "title": "DANL Project",
+    "section": "2.1 Summary Statistics",
+    "text": "2.1 Summary Statistics\n\nmpg &lt;- ggplot2::mpg\n\n\n\n\n  \n\n\n\nskim(mpg) %&gt;% \n  select(-n_missing)\n\n\nData summary\n\n\nName\nmpg\n\n\nNumber of rows\n234\n\n\nNumber of columns\n11\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n6\n\n\nnumeric\n5\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\nskim_variable\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\nmanufacturer\n1\n4\n10\n0\n15\n0\n\n\nmodel\n1\n2\n22\n0\n38\n0\n\n\ntrans\n1\n8\n10\n0\n10\n0\n\n\ndrv\n1\n1\n1\n0\n3\n0\n\n\nfl\n1\n1\n1\n0\n5\n0\n\n\nclass\n1\n3\n10\n0\n7\n0\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\ndispl\n1\n3.47\n1.29\n1.6\n2.4\n3.3\n4.6\n7\n▇▆▆▃▁\n\n\nyear\n1\n2003.50\n4.51\n1999.0\n1999.0\n2003.5\n2008.0\n2008\n▇▁▁▁▇\n\n\ncyl\n1\n5.89\n1.61\n4.0\n4.0\n6.0\n8.0\n8\n▇▁▇▁▇\n\n\ncty\n1\n16.86\n4.26\n9.0\n14.0\n17.0\n19.0\n35\n▆▇▃▁▁\n\n\nhwy\n1\n23.44\n5.95\n12.0\n18.0\n24.0\n27.0\n44\n▅▅▇▁▁"
+  },
+  {
+    "objectID": "NBA project/project.html#mpg-and-a-type-of-cars",
+    "href": "NBA project/project.html#mpg-and-a-type-of-cars",
+    "title": "DANL Project",
+    "section": "2.2 MPG and a Type of Cars",
+    "text": "2.2 MPG and a Type of Cars\nThe following boxplot shows how the distribution of highway MPG (hwy) varies by a type of cars (class) 🚙 🚚 🚐.\n\nggplot(data = mpg) +\n  geom_boxplot(aes(x = class, y = hwy, fill = class),\n               show.legend = F) +\n  labs(x = \"Class\", y = \"Highway\\nMPG\")"
+  },
+  {
+    "objectID": "posts/NFL/danl-hw5-Schettino-Luca.html#variable-description",
+    "href": "posts/NFL/danl-hw5-Schettino-Luca.html#variable-description",
+    "title": "NFL in 2022",
+    "section": "Variable Description",
+    "text": "Variable Description\n\nplay_id: Numeric play identifier that when used with game_id and drive provides the unique identifier for a single play\ngame_id: Ten digit identifier for NFL game.\ndrive: Numeric drive number in the game.\nweek: Season week.\nposteam: String abbreviation for the team with possession.\nqtr: Quarter of the game (5 is overtime).\nhalf_seconds_remaining: Numeric seconds remaining in the half.\ndown: The down for the given play.\n\nBasically you get four attempts (aka downs) to move the ball 10 yards (by either running with it or passing it).\nIf you make 10 yards then you get another set of four downs.\n\npass: Binary indicator if the play was a pass play.\nwp: Estimated winning probability for the posteam given the current situation at the start of the given play."
+  },
+  {
+    "objectID": "posts/NFL/danl-hw5-Schettino-Luca.html#q2a",
+    "href": "posts/NFL/danl-hw5-Schettino-Luca.html#q2a",
+    "title": "NFL in 2022",
+    "section": "Q2a",
+    "text": "Q2a\n\nlibrary(tidyverse)\nlibrary(skimr)\n\nIn data.frame, NFL2022_stuffs, remove observations for which values of posteam is missing.\n\nq2a &lt;- NFL2022_stuffs %&gt;% \n  filter(!is.na(posteam))"
+  },
+  {
+    "objectID": "posts/NFL/danl-hw5-Schettino-Luca.html#q2b",
+    "href": "posts/NFL/danl-hw5-Schettino-Luca.html#q2b",
+    "title": "NFL in 2022",
+    "section": "Q2b",
+    "text": "Q2b\n\nSummarize the mean value of pass for each posteam when all the following conditions hold:\n\n\nwp is greater than 20% and less than 75%;\ndown is less than or equal to 2; and\nhalf_seconds_remaining is greater than 120.\n\n\nq2b &lt;- NFL2022_stuffs %&gt;% \n  filter(between(wp, 0.2, 0.75),\n         down &lt;= 2,\n         half_seconds_remaining &gt; 120)\n\nmeanvalq2b &lt;- q2b %&gt;% \n  group_by(posteam) %&gt;% \n  summarise(mean_pass = mean(pass, na.rm = TRUE))\n\nmeanvalq2b\n\n# A tibble: 32 × 2\n   posteam mean_pass\n   &lt;chr&gt;       &lt;dbl&gt;\n 1 ARI         0.553\n 2 ATL         0.4  \n 3 BAL         0.520\n 4 BUF         0.604\n 5 CAR         0.458\n 6 CHI         0.420\n 7 CIN         0.657\n 8 CLE         0.491\n 9 DAL         0.474\n10 DEN         0.493\n# ℹ 22 more rows"
+  },
+  {
+    "objectID": "posts/NFL/danl-hw5-Schettino-Luca.html#q2c",
+    "href": "posts/NFL/danl-hw5-Schettino-Luca.html#q2c",
+    "title": "NFL in 2022",
+    "section": "Q2c",
+    "text": "Q2c\n\nProvide both (1) a ggplot code with geom_point() using the resulting data.frame in Q2b and (2) a simple comments to describe the mean value of pass for each posteam.\n\nIn the ggplot, reorder the posteam categories based on the mean value of pass in ascending or in descending order.\n\n\n\nmeanvaldesc &lt;- meanvalq2b %&gt;% \n  arrange(desc(mean_pass))\n\nggplot(meanvaldesc, aes(x = mean_pass, y = reorder(posteam, mean_pass))) +\n  geom_point()+\n  labs(x= \"Percentage of Pass Plays\",\n       y= \"Team with possesion\")\n\n\n\n\n\nCincinnati, Kansas City, Los Angeles Chargers, Buffalo Bills, and Philadelphia eagles had the top 5 highest average percentage of pass plays during the 2022 season.\nAtlanta, Washington, Chicago, New Orleans, and Tennessee had the top 5 lowest average percentage of pass plays during the 2022 season."
+  },
+  {
+    "objectID": "posts/NFL/danl-hw5-Schettino-Luca.html#q2d",
+    "href": "posts/NFL/danl-hw5-Schettino-Luca.html#q2d",
+    "title": "NFL in 2022",
+    "section": "Q2d",
+    "text": "Q2d\n\nConsider the following data.frame, NFL2022_epa:\n\n\nNFL2022_epa &lt;- read.csv('https://bcdanl.github.io/data/NFL2022_epa.csv')\n\n\nVariable description for NFL2022_epa\n\nplay_id: Numeric play identifier that when used with game_id and drive provides the unique identifier for a single play\ngame_id: Ten digit identifier for NFL game.\ndrive: Numeric drive number in the game.\nposteam: String abbreviation for the team with possession.\npasser: Name of the player who passed a ball to a receiver by initially taking a three-step drop and backpedaling into the pocket to make a pass. (Mostly, they are quarterbacks)\nreceiver: Name of the receiver.\nepa: Expected points added (EPA) by the posteam for the given play.\n\nCreate the data.frame, NFL2022_stuffs_EPA, that includes\n\n\nAll the variables in the data.frame, NFL2022_stuffs;\nThe variables, passer, receiver, and epa, from the data.frame, NFL2022_epa. by joining the two data.frames.\n\n\nIn the resulting data.frame, NFL2022_stuffs_EPA, remove observations with NA in passer.\n\nAnswer:\n\nNFL2022_stuffs_EPA &lt;- left_join(NFL2022_stuffs, NFL2022_epa, by = c(\"play_id\", \"game_id\", \"drive\", \"posteam\"))\n\nNFL2022_stuffs_EPA &lt;- NFL2022_stuffs_EPA %&gt;%\n  filter(!is.na(passer))"
+  },
+  {
+    "objectID": "posts/NFL/danl-hw5-Schettino-Luca.html#q2e",
+    "href": "posts/NFL/danl-hw5-Schettino-Luca.html#q2e",
+    "title": "NFL in 2022",
+    "section": "Q2e",
+    "text": "Q2e\n\nProvide both (1) a single ggplot and (2) a simple comment to describe the NFL weekly trend of weekly mean value of epa for each of the following two passers,\n“J.Allen”\n“P.Mahomes”\n\n\ntwo_passers &lt;- c(\"J.Allen\", \"P.Mahomes\")\n\nfiltered_twopassers &lt;- NFL2022_stuffs_EPA %&gt;% \n  filter(passer %in% two_passers)\n\nmean_epa_data &lt;- filtered_twopassers %&gt;% group_by(week, passer) %&gt;% \n  summarise(mean_epa = mean(epa, na.rm = TRUE))\n\nggplot(mean_epa_data, aes(x= week, y= mean_epa, color = passer))+\n  geom_line()+\n  scale_color_manual(values =c(\"J.Allen\" =\"blue\", \"P.Mahomes\"=\"red\"))+\n  labs(x= \"Week\",\n       y= \"Mean value of expected points added (EPA)\")\n\n\n\n\nComment: Patrick Mahomes generally had a higher mean value of epa. However, there were a few weeks that Josh Allen had a higher mean value of epa."
+  },
+  {
+    "objectID": "posts/NFL/danl-hw5-Schettino-Luca.html#q2f",
+    "href": "posts/NFL/danl-hw5-Schettino-Luca.html#q2f",
+    "title": "NFL in 2022",
+    "section": "Q2f",
+    "text": "Q2f\nCalculate the difference between the mean value of epa for “J.Allen” the mean value of epa for “P.Mahomes” for each value of week.\n\ndifference_epa &lt;- mean_epa_data %&gt;% \n  pivot_wider(names_from = passer, values_from = mean_epa)\n\ndifference_epa$epa_differnce &lt;- difference_epa$'J.Allen' - difference_epa$'P.Mahomes'\n\nprint(difference_epa)\n\n# A tibble: 22 × 4\n# Groups:   week [22]\n    week J.Allen P.Mahomes epa_differnce\n   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n 1     1   0.530    0.698        -0.169 \n 2     2   0.487    0.148         0.339 \n 3     3   0.169    0.246        -0.0763\n 4     4   0.191    0.271        -0.0803\n 5     5   0.627    0.302         0.325 \n 6     6   0.307    0.133         0.173 \n 7     7  NA        0.701        NA     \n 8     8   0.224   NA            NA     \n 9     9  -0.208    0.0965       -0.304 \n10    10   0.161    0.589        -0.429 \n# ℹ 12 more rows"
+  },
+  {
+    "objectID": "posts/NFL/danl-hw5-Schettino-Luca.html#q2g",
+    "href": "posts/NFL/danl-hw5-Schettino-Luca.html#q2g",
+    "title": "NFL in 2022",
+    "section": "Q2g",
+    "text": "Q2g\n\nSummarize the resulting data.frame in Q2d, with the following four variables:\n\nposteam: String abbreviation for the team with possession.\npasser: Name of the player who passed a ball to a receiver by initially taking a three-step drop, and backpedaling into the pocket to make a pass. (Mostly, they are quarterbacks.)\nmean_epa: Mean value of epa in 2022 for each passer\nn_pass: Number of observations for each passer\n\nThen find the top 10 NFL passers in 2022 in terms of the mean value of epa, conditioning that n_pass must be greater than or equal to the third quantile level of n_pass.\n\n\nsummary_data &lt;- NFL2022_stuffs_EPA %&gt;%\n  group_by(posteam, passer) %&gt;%\n  summarise(\n    mean_epa = mean(epa, na.rm = TRUE),\n    n_pass = n()\n  )\n\nquantile_threshold_passer &lt;- quantile(summary_data$n_pass, 0.75)\nfiltered_summary_data &lt;- summary_data %&gt;%\n  filter(n_pass &gt;= quantile_threshold_passer)\n\ntop_10_passers &lt;- filtered_summary_data %&gt;%\n  arrange(desc(mean_epa)) %&gt;% \n  head(n=10)\n  \ntop_10_passers\n\n# A tibble: 10 × 4\n# Groups:   posteam [10]\n   posteam passer       mean_epa n_pass\n   &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;  &lt;int&gt;\n 1 KC      P.Mahomes      0.286     880\n 2 MIA     T.Tagovailoa   0.234     453\n 3 SF      J.Garoppolo    0.200     348\n 4 BUF     J.Allen        0.172     785\n 5 DET     J.Goff         0.171     661\n 6 CIN     J.Burrow       0.153     854\n 7 DAL     D.Prescott     0.147     529\n 8 PHI     J.Hurts        0.138     672\n 9 JAX     T.Lawrence     0.128     764\n10 CLE     J.Brissett     0.0912    445"
   }
 ]
