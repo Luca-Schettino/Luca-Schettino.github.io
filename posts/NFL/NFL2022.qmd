@@ -173,3 +173,21 @@ print(difference_epa)
 
 - Then find the top 10 NFL passers in 2022 in terms of the mean value of epa, conditioning that n_pass must be greater than or equal to the third quantile level of n_pass.
 
+```{r}
+summary_data <- NFL2022_stuffs_EPA %>%
+  group_by(posteam, passer) %>%
+  summarise(
+    mean_epa = mean(epa, na.rm = TRUE),
+    n_pass = n()
+  )
+
+quantile_threshold_passer <- quantile(summary_data$n_pass, 0.75)
+filtered_summary_data <- summary_data %>%
+  filter(n_pass >= quantile_threshold_passer)
+
+top_10_passers <- filtered_summary_data %>%
+  arrange(desc(mean_epa)) %>% 
+  head(n=10)
+  
+top_10_passers
+```
