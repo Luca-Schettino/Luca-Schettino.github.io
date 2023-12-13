@@ -8,11 +8,11 @@ website:
     pinned: true
     left:
       - text: Project
-        href: project.qmd
+        href: NBASalaries.qmd
       - text: Blog
         href: blog-listing.qmd
   page-footer: 
-    center: "Powered with GitHub and Quarto<br>© YOUR NAME, 2023"
+    center: "Powered with GitHub and Quarto<br>© Luca Schettino, 2023"
 
 format:
   html:
