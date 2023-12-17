@@ -8,7 +8,7 @@ website:
     pinned: true
     left:
       - text: Project
-        href: NBASalaries.qmd
+        href: NBAproject/NBASalaries.qmd
       - text: Blog
         href: blog-listing.qmd
   page-footer: 
